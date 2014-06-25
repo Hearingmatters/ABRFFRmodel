@@ -7,7 +7,7 @@ import numpy as np
 import scipy.io as sio
 # from scipy.io import wavfile
 # import matplotlib.pyplot as plt
-import main_loop_update
+import main_loop
 # from os import sys
 
 
