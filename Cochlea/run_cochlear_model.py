@@ -6,7 +6,9 @@ import multiprocessing as mp
 Oversampling = 1
 sectionsNo = 1000
 p0 = float(2e-5)
-par = sio.loadmat('input.mat')   # Input parameters are loaded from a mat file
+
+# Input parameters are loaded from a mat file
+par = sio.loadmat('input.mat')
 
 probes = np.array(par['probes'])
 probe_points = probes
@@ -23,7 +25,7 @@ lgt = len(stim[0])
 norm_factor = p0 * 10. ** (spl / 20.)
 
 # sheraPo=0.06
-sheraPo = np.loadtxt('StartingPoles.dat', delimiter=',')
+sheraPo = np.loadtxt('../sysfiles/StartingPoles.dat', delimiter=',')
 sheraPo = np.array(sheraPo)
 irr_on = np.array(par['irregularities'])
 d = len(stim[0].transpose())
@@ -70,7 +72,7 @@ if __name__ == "__main__":
         Emission[:, i] = result[i][2]
         Resampled_stimulus[:, i] = result[i][3]
 
-    sio.savemat("output.mat",
+    sio.savemat('output.mat',
                 mdict={"Velocity": Vresult, "Displacement": Yresult,
                        "OtoAcousticEmission": Emission,
                        "OutStimulus": Resampled_stimulus,
