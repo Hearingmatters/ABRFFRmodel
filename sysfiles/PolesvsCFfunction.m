@@ -27,8 +27,13 @@ Qhuman=acat*(fres/1000).^bcat;
 StartingPoles=aQ*Qhuman.^bQ;
 %for stability and memory purposes in the model, do not go beyond the range
 %of 0.3 and 0.03 for the model poles. So limit these
-Ns=find(StartingPoles<0.037);
-StartingPoles(Ns)=0.037;
+Ns=find(StartingPoles<0.037); %originally 0.037
+StartingPoles(Ns)=0.037; %originally 0.037
+
+%uncomment this last bit if you want to write a new startingpoles file
+%fid = fopen('StartingPoles.dat','w');
+%fprintf(fid,'%E\n',StartingPoles);
+%fclose(fid);
 
 figure,plot(StartingPoles)
 xlabel('sectionNo'),ylabel('PoleLocation')
@@ -40,3 +45,4 @@ xlabel('CF'),ylabel('PoleLocation')
 ModelQ=a*StartingPoles.^b;
 figure,plot(fres/1000,ModelQ)
 xlabel('CF'),ylabel('Qerb')
+
