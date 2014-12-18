@@ -215,6 +215,7 @@ class cochlea_model ():
         # PURIAM1 FILTER             ###
         #
         puria_gain = 10 ** (18. / 20.) * 2.
+<<<<<<< HEAD
         ## was the orignal Puria in 2012
         ##second order butterworth
         ##b, a = signal.butter(
@@ -229,6 +230,13 @@ class cochlea_model ():
         a=signal.convolve(a1,a2)
         self.stim=signal.lfilter(b*puria_gain,a,stim) 
 
+=======
+        #second order butterworth
+        b, a = signal.butter(
+            1, [100. / (samplerate / 2.), 3000. / (samplerate / 2)],
+            'bandpass')
+        self.stim = signal.lfilter(b * puria_gain, a, stim)
+>>>>>>> 47cf2b327fafa10991497f50996f2b61bc7bd74e
 
     # from intializeCochlea.f90
     def initCochlea(self):

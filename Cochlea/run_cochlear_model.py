@@ -9,7 +9,10 @@ p0 = float(2e-5)
 
 # Input parameters are loaded from a mat file
 par = sio.loadmat('input.mat')
+<<<<<<< HEAD
 #par=sio.loadmat('/home/gmehraei/ABB_model/StimInput/inputclick.mat')
+=======
+>>>>>>> 47cf2b327fafa10991497f50996f2b61bc7bd74e
 
 probes = np.array(par['probes'])
 probe_points = probes
